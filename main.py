@@ -3,14 +3,16 @@ import numpy as np
 import pandas as pd
 import sklearn
 
-
-# READ THESE and install the packages if you don't have them installed already:
-# I usually use pip to install packages. You can use pip to install packages as well.
-# datetime: https://docs.python.org/3/library/datetime.html
-# numpy: https://numpy.org/doc/stable/user/absolute_beginners.html
-# pandas: https://pandas.pydata.org/docs/getting_started/index.html\
-# sklearn: https://scikit-learn.org/stable/user_guide.html
-
+"""
+READ THESE and install the packages if you don't have them installed already:
+I usually use pip to install packages. You can use pip to install packages as well.
+datetime: https://docs.python.org/3/library/datetime.html
+numpy: https://numpy.org/doc/stable/user/absolute_beginners.html
+pandas: https://pandas.pydata.org/docs/getting_started/index.html
+sklearn: https://scikit-learn.org/stable/user_guide.html
+Matplotlib: https://matplotlib.org/stable/tutorials/pyplot.html
+What is machine learning: https://www.geeksforgeeks.org/machine-learning/
+"""
 
 
 class Task:
@@ -42,7 +44,8 @@ class Task:
 
 # TODO class to store tasks and perform actions on tasks
 class AIIntegratedTODO:
-    def __init__(self):             # initialize tasks and average_times as empty dictionaries
+    def __init__(self):
+        # initialize tasks and average_times as empty dictionaries
         self.tasks = {}             # tasks dictionary to store tasks
         self.average_times = {}     # average_times dictionary to store average times for each task
 
@@ -128,17 +131,19 @@ class AIIntegratedTODO:
             return sum(times, datetime.timedelta()) / len(times)    # return average time
 
     def suggest_tasks(self):
-        # The purpose of this function is to suggest tasks to the user based on their schedule and predicted time to complete that task and the due date of the task.
-        # This is where your AI logic will go to suggest tasks based on user's average completion time.
-        # I have left this blank for us to discuss and work on together.
-        # Supervised vs unsupervised learning: https://www.geeksforgeeks.org/supervised-unsupervised-learning/
-        # Linear regression: https://www.geeksforgeeks.org/ml-linear-regression/
-        # Decision tree: https://www.geeksforgeeks.org/decision-tree-implementation-python/
-        # Random forest: https://www.geeksforgeeks.org/random-forest-regression-in-python/
-        # Neural network: https://www.geeksforgeeks.org/introduction-to-neural-networks/
-        # Hierarchical clustering: https://www.geeksforgeeks.org/ml-hierarchical-clustering-agglomerative-and-divisive-clustering/
-        # K-means clustering: https://www.geeksforgeeks.org/ml-k-means-algorithm/
-        # And there are many more ways to do this. We can discuss and decide on the best way to do this.
+        """
+        The purpose of this function is to suggest tasks to the user based on their schedule and predicted time to complete that task and the due date of the task.
+        This is where your AI logic will go to suggest tasks based on user's average completion time.
+        I have left this blank for us to discuss and work on together.
+        **Supervised vs unsupervised learning: https://www.geeksforgeeks.org/supervised-unsupervised-learning/**
+        Linear regression: https://www.geeksforgeeks.org/ml-linear-regression/
+        Decision tree: https://www.geeksforgeeks.org/decision-tree-implementation-python/
+        Random forest: https://www.geeksforgeeks.org/random-forest-regression-in-python/
+        Neural network: https://www.geeksforgeeks.org/introduction-to-neural-networks/
+        Hierarchical clustering: https://www.geeksforgeeks.org/ml-hierarchical-clustering-agglomerative-and-divisive-clustering/
+        K-means clustering: https://www.geeksforgeeks.org/ml-k-means-algorithm/
+        And there are many more ways to do this. We can discuss and decide on the best way to do this.
+        """
         pass
 
 # Create a new instance of the AIIntegratedTODO class
