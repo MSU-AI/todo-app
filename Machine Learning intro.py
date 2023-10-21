@@ -25,12 +25,13 @@ Machine Learning (ML) works in a similar way.
 
 """
 Now that we understand what machine learning is, 
-let's talk about one of its libraries in Python - Scikit-learn.
+    let's talk about one of its libraries in Python - Scikit-learn.
 
 Scikit-learn is like a toolbox full of machine learning tools. 
+
 You'd use Scikit-learn for tasks like classification, regression, clustering.
-It provides various tools for model fitting, data preprocessing, model selection and 
-evaluation, making it a library for both supervised and unsupervised machine learning.
+    It provides various tools for model fitting, data preprocessing, model selection and 
+    evaluation, making it a library for both supervised and unsupervised machine learning.
 
 Scikit-learn is built on top of NumPy, SciPy, and Matplotlib,
 """
@@ -38,7 +39,8 @@ Scikit-learn is built on top of NumPy, SciPy, and Matplotlib,
 ## 3. Basic Code Example Using Scikit-learn
 
 """
-Let's look at an example of how Scikit-learn can be used. We'll use the Linear Regression model as an example:
+Let's look at an example of how Scikit-learn can be used. 
+    We'll use the Linear Regression model as an example:
 """
 
 # Import the necessary libraries
@@ -98,15 +100,15 @@ plt.show()
 
 """
 In this code snippet, we first import the necessary library. 
-We then create an object of the Linear Regression model. 
-We fit this model on some data (x,y). 
-Finally, we print out the coefficients of the fitted model.
+    We then create an object of the Linear Regression model. 
+    We fit this model on some data (x,y). 
+    Finally, we print out the coefficients of the fitted model.
 """
 
 ## 4. Conclusion
 
 """
-Sources:
+Helpful Sources:
 (1) What is Machine Learning? | YouTube. https://www.youtube.com/watch?v=ukzFI9rgwfU&ab_channel=Simplilearn
 (2) What is Machine Learning? | IBM. https://www.ibm.com/topics/machine-learning.
 (3) An introduction to machine learning with scikit-learn. https://scikit-learn.org/stable/tutorial/basic/tutorial.html.
@@ -122,6 +124,16 @@ Sources:
 """
 
 # 5. Bonus: Examlpe of a Real World Example using Clustering (K-Means Clustering)
+
+"""
+This code demonstrates how machine learning can be used to group data into clusters. 
+    Specifically, it takes a dataset of customer transactions and groups the customers 
+    into clusters based on their transaction history. This can be useful for businesses 
+    that want to identify groups of customers with similar purchasing behavior and tailor 
+    their marketing strategies accordingly. Note that this is just an example and not necessarily 
+    the best or only way to solve this problem.
+"""
+
 
 import pandas as pd
 import numpy as np
