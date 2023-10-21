@@ -142,6 +142,7 @@ from sklearn.cluster import KMeans
 from sklearn.preprocessing import StandardScaler
 
 # Generate customer transaction data
+# This would typically be read from a database or file like a CSV
 data = {
     'Customer ID': list(range(1, 101)),
     'Amount Spent': np.random.randint(0, 100, size=100),
