@@ -19,10 +19,10 @@ Machine Learning (ML) works in a similar way.
     
     In our case trained to predict and suggest tasks based on the user's schedule 
     and predicted time to complete that task and the due date of the task.
-
 """
 
 ## 2. Introduction to Scikit-learn
+
 """
 Now that we understand what machine learning is, 
 let's talk about one of its libraries in Python - Scikit-learn.
@@ -33,7 +33,6 @@ It provides various tools for model fitting, data preprocessing, model selection
 evaluation, making it a library for both supervised and unsupervised machine learning.
 
 Scikit-learn is built on top of NumPy, SciPy, and Matplotlib,
-
 """
 
 ## 3. Basic Code Example Using Scikit-learn
@@ -103,6 +102,7 @@ Finally, we print out the coefficients of the fitted model.
 """
 
 ## 4. Conclusion
+
 """
 Sources:
 (1) What is Machine Learning? | YouTube. https://www.youtube.com/watch?v=ukzFI9rgwfU&ab_channel=Simplilearn

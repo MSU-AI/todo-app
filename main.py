@@ -5,13 +5,14 @@ import sklearn
 
 """
 READ THESE and install the packages if you don't have them installed already:
+I recommend reading the [Machine Learning intro.py] first. It has a lot of useful information. 
 I usually use pip to install packages. You can use pip to install packages as well.
 datetime: https://docs.python.org/3/library/datetime.html
+What is machine learning: https://www.geeksforgeeks.org/machine-learning/
 numpy: https://numpy.org/doc/stable/user/absolute_beginners.html
 pandas: https://pandas.pydata.org/docs/getting_started/index.html
 sklearn: https://scikit-learn.org/stable/user_guide.html
 Matplotlib: https://matplotlib.org/stable/tutorials/pyplot.html
-What is machine learning: https://www.geeksforgeeks.org/machine-learning/
 """
 
 
