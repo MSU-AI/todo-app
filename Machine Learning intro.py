@@ -43,7 +43,9 @@ Let's look at an example of how Scikit-learn can be used. We'll use the Linear R
 
 # Import the necessary libraries
 from sklearn import linear_model
+# pip install -U scikit-learn
 import matplotlib.pyplot as plt
+# pip install -U matplotlib
 
 # Create a Linear Regression object
 # Basically, we're creating a Linear Regression model: https://youtu.be/nk2CQITm_eo?si=uciJQKH6HVuyshdt

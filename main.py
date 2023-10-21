@@ -1,6 +1,9 @@
 import datetime
+# pip install datetime
 import numpy as np
+# pip install numpy
 import pandas as pd
+# pip install pandas
 import sklearn
 
 """
