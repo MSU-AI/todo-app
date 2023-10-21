@@ -91,7 +91,7 @@ plt.plot([i[0] for i in x], reg.predict(x), color='blue', linewidth=3)
 # Add labels and title
 plt.xlabel('Feature')
 plt.ylabel('Target')
-plt.title('Linear Regression')
+plt.title('#3. Linear Regression')
 
 # Show the plot
 plt.show()
@@ -120,3 +120,78 @@ Sources:
 (11) What is machine learning? | Microsoft Azure. https://azure.microsoft.com/en-us/resources/cloud-computing-dictionary/what-is-machine-learning-platform/.
 (12) Machine learning - Wikipedia. https://en.wikipedia.org/wiki/Machine_learning.
 """
+
+# 5. Bonus: Examlpe of a Real World Example using Clustering (K-Means Clustering)
+
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+from sklearn.cluster import KMeans
+from sklearn.preprocessing import StandardScaler
+
+# Generate customer transaction data
+data = {
+    'Customer ID': list(range(1, 101)),
+    'Amount Spent': np.random.randint(0, 100, size=100),
+    'Items Purchased': np.random.randint(1, 20, size=100)
+}
+
+# Create a DataFrame
+# Making a table
+# Dataframe: https://pandas.pydata.org/docs/getting_started/intro_tutorials/01_table_oriented.html
+df = pd.DataFrame(data)
+
+# Extract the features
+# Features are the independent variables
+# Target variable is the dependent variable
+X = df.iloc[:, 1:].values
+
+# Scale the features
+# Making the features have the same scale
+scaler = StandardScaler()
+# StandardScaler: https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.StandardScaler.html
+X = scaler.fit_transform(X)
+
+# Create a KMeans object
+# KMeans model: https://youtu.be/4b5d3muPQmA?si=8f2f9f9f9f9f9f9f
+kmeans = KMeans(n_clusters=4)
+
+# Fit the model using the customer transaction data
+kmeans.fit(X)
+
+# Add the cluster labels to the original data
+df['Cluster'] = kmeans.labels_
+
+# Calculate the correlation within each cluster
+
+# Group the data by cluster and calculate the correlation between Amount Spent and Items Purchased 
+# Ref: https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.groupby.html
+correlations = df.groupby('Cluster')['Amount Spent', 'Items Purchased'].corr().iloc[0::2, -1]
+avg_items = df.groupby('Cluster')['Items Purchased'].mean()
+avg_spent = df.groupby('Cluster')['Amount Spent'].mean()
+
+# Convert the indices to a flat index
+# Flat Index: https://pandas.pydata.org/docs/reference/api/pandas.MultiIndex.to_flat_index.html
+correlations.index = correlations.index.to_flat_index()
+avg_items.index = avg_items.index.to_flat_index()
+avg_spent.index = avg_spent.index.to_flat_index()
+
+# Combine the correlations, average items purchased, and average amount spent into a single table
+# Concat: https://pandas.pydata.org/docs/reference/api/pandas.concat.html
+table = pd.concat([correlations, avg_items, avg_spent], axis=1)
+table.columns = ['Correlation', 'Avg Items Purchased', 'Avg Amount Spent']
+
+# Print the table
+print(table)
+
+# Plot the clusters
+plt.scatter(df['Amount Spent'], df['Items Purchased'], c=df['Cluster'], cmap='viridis')
+centroids = scaler.inverse_transform(kmeans.cluster_centers_)
+plt.scatter(centroids[:, 0], centroids[:, 1], s=300, c='red', marker='*')
+# Annotate: https://matplotlib.org/stable/users/explain/text/annotations.html#plotting-guide-annotation
+for i, centroid in enumerate(centroids):
+    plt.annotate(f"   {i}", (centroid[0], centroid[1]), fontsize=12, fontweight='bold', color='red')
+plt.xlabel('Amount Spent')
+plt.ylabel('Items Purchased')
+plt.title('#5. Customer Segmentation using K-means clustering')
+plt.show()
