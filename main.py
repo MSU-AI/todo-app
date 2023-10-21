@@ -139,7 +139,7 @@ class AIIntegratedTODO:
         The purpose of this function is to suggest tasks to the user based on their schedule and predicted time to complete that task and the due date of the task.
         This is where your AI logic will go to suggest tasks based on user's average completion time.
         I have left this blank for us to discuss and work on together.
-        **Supervised vs unsupervised learning: https://www.geeksforgeeks.org/supervised-unsupervised-learning/**
+        Supervised vs unsupervised learning: https://www.geeksforgeeks.org/supervised-unsupervised-learning/
         Linear regression: https://www.geeksforgeeks.org/ml-linear-regression/
         Decision tree: https://www.geeksforgeeks.org/decision-tree-implementation-python/
         Random forest: https://www.geeksforgeeks.org/random-forest-regression-in-python/
