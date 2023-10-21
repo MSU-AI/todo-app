@@ -134,7 +134,7 @@ This code demonstrates how machine learning can be used to group data into clust
     the best or only way to solve this problem.
 """
 
-
+# Import the necessary libraries
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
