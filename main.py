@@ -140,6 +140,7 @@ class AIIntegratedTODO:
         This is where your AI logic will go to suggest tasks based on user's average completion time.
         I have left this blank for us to discuss and work on together.
         Supervised vs unsupervised learning: https://www.geeksforgeeks.org/supervised-unsupervised-learning/
+            I have 2 examples in the ML intro.py file. One is supervised and the other is unsupervised.
         Linear regression: https://www.geeksforgeeks.org/ml-linear-regression/
         Decision tree: https://www.geeksforgeeks.org/decision-tree-implementation-python/
         Random forest: https://www.geeksforgeeks.org/random-forest-regression-in-python/
