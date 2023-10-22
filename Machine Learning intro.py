@@ -41,6 +41,7 @@ Scikit-learn is built on top of NumPy, SciPy, and Matplotlib,
 """
 Let's look at an example of how Scikit-learn can be used. 
     We'll use the Linear Regression model as an example:
+    Run the code below to see the output.
 """
 
 # Import the necessary libraries
@@ -132,6 +133,7 @@ This code demonstrates how machine learning can be used to group data into clust
     that want to identify groups of customers with similar purchasing behavior and tailor 
     their marketing strategies accordingly. Note that this is just an example and not necessarily 
     the best or only way to solve this problem.
+    Run the code below to see the output.
 """
 
 # Import the necessary libraries
