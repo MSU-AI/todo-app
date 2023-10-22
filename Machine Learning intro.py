@@ -51,7 +51,7 @@ import matplotlib.pyplot as plt
 # pip install -U matplotlib
 
 # Create a Linear Regression object
-# Basically, we're creating a Linear Regression model: https://youtu.be/nk2CQITm_eo?si=uciJQKH6HVuyshdt
+# Basically, we're creating a Linear Regression model: https://youtu.be/nk2CQITm_eo?si=uciJQKH6HVuyshdt, https://www.youtube.com/watch?v=NUXdtN1W1FE&ab_channel=Simplilearn
 # Linear regression is a statistical method used to model and analyze the relationship 
 # between a dependent variable and one or more independent variables by fitting a linear equation to the observed data.
 reg = linear_model.LinearRegression()
