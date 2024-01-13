@@ -6,6 +6,7 @@ import pandas as pd
 # pip install pandas
 import sklearn
 
+
 """
 READ THESE and install the packages if you don't have them installed already:
 I recommend reading the [Machine Learning intro.py] first. It has a lot of useful information. 
@@ -150,6 +151,9 @@ class AIIntegratedTODO:
         And there are many more ways to do this. We can discuss and decide on the best way to do this.
         """
         pass
+
+    def get_tasks(self):
+        return self.tasks
 
 # Create a new instance of the AIIntegratedTODO class
 todo = AIIntegratedTODO()
