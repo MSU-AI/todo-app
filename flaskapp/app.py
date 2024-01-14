@@ -22,5 +22,9 @@ def home():
     tasks = todo.get_tasks()
     return render_template('todo.html', tasks=tasks, actions=actions)
 
+@app.route('/exit', methods=['GET'])
+def exit():
+    return "Thank you for using our application. Goodbye!"
+
 if __name__ == '__main__':
     app.run(debug=True)
