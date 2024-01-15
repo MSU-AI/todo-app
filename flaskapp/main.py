@@ -41,10 +41,12 @@ class Task:
     def resume(self):
         self.start_time = datetime.datetime.now()                       # set start time to current time
 
-    def get_duration(self):
-        duration = (self.end_time - self.start_time).total_seconds()    # returns time in seconds
-        return str(datetime.timedelta(seconds=duration))                # returns time in HH:MM:SS format
-                                                                        # HH: hours, MM: minutes, SS: seconds
+    def get_duration(self, seconds=False):
+        duration = (self.end_time - self.start_time).total_seconds()    # get time in seconds
+        if not seconds:
+          return str(datetime.timedelta(seconds=duration))              # returns time in HH:MM:SS format
+        else:                                                           # HH: hours, MM: minutes, SS: seconds
+          return duration                                               # returns time in seconds                                  
 
 
 # TODO class to store tasks and perform actions on tasks
@@ -92,7 +94,7 @@ class AIIntegratedTODO:
         if task_name in self.tasks:
             task = self.tasks[task_name]                # get task object
             task.done()                                 # set end time to current time
-            duration = task.get_duration()              # get duration of task
+            duration = task.get_duration(True)          # get duration of task
             
             # add duration to average_times dictionary
             if task_name in self.average_times:
@@ -128,12 +130,18 @@ class AIIntegratedTODO:
         else:
             print(f"Task '{task_name}' does not exist.")
 
-    # Get average time for a task
+    # Get average time for a task, RETURNS TWO VALUES
     def get_average_time(self, task_name):
         # check if task exists
         if task_name in self.average_times:
-            times = self.average_times[task_name]                   # get list of durations
-            return sum(times, datetime.timedelta()) / len(times)    # return average time
+            times = self.average_times[task_name]                       # get list of durations
+            std = np.std(times)                                         # get standard deviation
+            return (sum(times) / len(times)), std   # return average time and standard deviation
+        
+    def predict_task(self, task_name):
+        if task_name in self.average_times:
+            avg, std = todo.get_average_time(task_name)                 # get average and standard deviation
+            print(f"This task is predicted to take '{str(datetime.timedelta(seconds=round(avg)))}' + or - '{str(datetime.timedelta(seconds=round(std)))}'")
 
     def suggest_tasks(self):
         """
@@ -161,7 +169,7 @@ todo = AIIntegratedTODO()
 # Prompt the user to add tasks and perform other actions
 while True:
     # Prompt user to enter action
-    action = input("What would you like to do? (add, begin, end, pause, resume, suggest, exit) ")
+    action = input("What would you like to do? (add, begin, end, pause, resume, predict, exit) ")
     
     # Perform action based on user input
     if action == "add":
@@ -210,9 +218,16 @@ while True:
         # Resume task
         todo.resume_task(task_name)
     
-    elif action == "suggest":
-        # Suggest tasks
-        todo.suggest_tasks()
+    elif action == "predict":
+        # Prompt user to enter task name
+        task_name = input("Enter task name: ")
+
+        # Predict task
+        todo.predict_task(task_name)
+
+    # elif action == "suggest":
+    #     # Suggest tasks
+    #     todo.suggest_tasks()
     
     elif action == "exit":
         # Exit the program
