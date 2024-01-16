@@ -15,6 +15,7 @@ while True:
         # Prompt user to enter task name and due date
         task_name = input("Enter task name: ")
         due_date = input(f"Enter due date ({'YYYY-MM-DD'}): ")
+        category = input("Enter task category: ")
         
         # Add task to tasks dictionary
         todo.add_task(task_name, due_date)
@@ -79,10 +80,16 @@ while True:
             file = input("What file would you like to use? ")
         rw = input("Would you like to read or write the CSV file? (w for write, r for read.) ")
         if rw == "w":
-            append_write = input("True for append, False for write ")
-            csvclass.write_csv(todo.tasks, append_write)
+            append = input("a for append, w for write. ")
+            if append == "a":
+                append = True
+            else:
+                append = False
+            csvclass.write_csv(todo.tasks, append)
         elif rw == "r":
             print(csvclass.read_csv())
+        else:
+            print("Invalid input.")
 
     else:
         # Print message indicating invalid action

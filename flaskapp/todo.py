@@ -2,9 +2,9 @@ import datetime
 # pip install datetime
 import numpy as np
 # pip install numpy
-import pandas as pd
+# import pandas as pd
 # pip install pandas
-import sklearn
+# import sklearn
 from task import Task
 
 
@@ -30,7 +30,7 @@ class AIIntegratedTODO:
         self.average_times = {}     # average_times dictionary to store average times for each task
 
     # Add task to tasks dictionary
-    def add_task(self, task_name, due_date=None):
+    def add_task(self, task_name, due_date=None, category=None):
         while due_date is not None:
             # check if date is valid
             try:
@@ -46,7 +46,7 @@ class AIIntegratedTODO:
                 print("Invalid date format. Please enter a date in the format YYYY-MM-DD.")
                 due_date = input(f"Enter due date ({'YYYY-MM-DD'}): ")
         
-        task = Task(task_name, due_date)                                        # create task object
+        task = Task(task_name, due_date, category)                                        # create task object
         
         self.tasks.append(task)                                            # add task to tasks list
         self.task_names.append(task_name)
