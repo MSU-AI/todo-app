@@ -38,7 +38,7 @@ class Task:
 # Use the import statement once we have a stable file with the class Task.
 
 class CSVReadWrite:
-    def __init__(self, file = '/Users/saatvikpalli/Code/MSU/todo-app/flaskapp/taskdata.csv'):
+    def __init__(self, file = '/Users/harshm04/Downloads/test.csv'):
         # file is temporary default arg that only works on Saatvik's system
         # Change to whatever works for you
         self.file = file

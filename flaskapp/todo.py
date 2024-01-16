@@ -25,7 +25,8 @@ class AIIntegratedTODO:
     def __init__(self):
         #TODO: Read and initialize Tasks in CSV file into dictionaries.
         # initialize tasks and average_times as empty dictionaries
-        self.tasks = {}             # tasks dictionary to store tasks
+        self.tasks = []             # tasks list to store tasks
+        self.task_names = []        # list to store task names
         self.average_times = {}     # average_times dictionary to store average times for each task
 
     # Add task to tasks dictionary
@@ -47,15 +48,16 @@ class AIIntegratedTODO:
         
         task = Task(task_name, due_date)                                        # create task object
         
-        self.tasks[task_name] = task                                            # add task to tasks dictionary
+        self.tasks.append(task)                                            # add task to tasks list
+        self.task_names.append(task_name)
         
         print(f"Added task '{task_name}' due on {due_date}.")
 
     # Begin task
     def begin_task(self, task_name):
         # check if task exists
-        if task_name in self.tasks:
-            self.tasks[task_name].begin()
+        if task_name in self.task_names:
+            self.tasks[self.task_names.index(task_name)].begin()
             print(f"Started task '{task_name}'.")
         else:
             print(f"Task '{task_name}' does not exist.")
@@ -63,8 +65,8 @@ class AIIntegratedTODO:
     # End task
     def end_task(self, task_name):
         # check if task exists
-        if task_name in self.tasks:
-            task = self.tasks[task_name]                # get task object
+        if task_name in self.task_names:
+            task = self.tasks[self.task_names.index(task_name)]                # get task object
             task.done()                                 # set end time to current time
             duration = task.get_duration(True)          # get duration of task
             
@@ -87,8 +89,8 @@ class AIIntegratedTODO:
     # Pause task
     def pause_task(self, task_name):
         # check if task exists
-        if task_name in self.tasks:
-            self.tasks[task_name].pause()               # set end time to current time
+        if task_name in self.task_names:
+            self.tasks[self.task_names.index(task_name)].pause()               # set end time to current time
             print(f"Paused task '{task_name}'.")
         else:
             print(f"Task '{task_name}' does not exist.")
@@ -96,8 +98,8 @@ class AIIntegratedTODO:
     # Resume task
     def resume_task(self, task_name):
         # check if task exists
-        if task_name in self.tasks:
-            self.tasks[task_name].resume()              # set start time to current time
+        if task_name in self.task_names:
+            self.tasks[self.task_names.index(task_name)].resume()              # set start time to current time
             print(f"Resumed task '{task_name}'.")
         else:
             print(f"Task '{task_name}' does not exist.")

@@ -7,6 +7,7 @@ class Task:
         self.due_date = due_date            # due date of task
         self.start_time = start_time        # start time of task
         self.end_time = None                # end time of task
+        self.category = None                # category of task
 
     # Begin task
     def begin(self):
@@ -27,3 +28,6 @@ class Task:
           return str(datetime.timedelta(seconds=duration))              # returns time in HH:MM:SS format
         else:                                                           # HH: hours, MM: minutes, SS: seconds
           return duration                                               # returns time in seconds 
+
+    def get_category(self):
+        return self.category                                            # returns the category of task

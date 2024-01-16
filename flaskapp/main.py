@@ -1,12 +1,14 @@
 from todo import AIIntegratedTODO
+from csvclass import CSVReadWrite
 
 # Create a new instance of the AIIntegratedTODO class
 todo = AIIntegratedTODO()
+csvclass = CSVReadWrite()
 
 # Prompt the user to add tasks and perform other actions
 while True:
     # Prompt user to enter action
-    action = input("What would you like to do? (add, begin, end, pause, resume, predict, exit) ")
+    action = input("What would you like to do? (add, begin, end, pause, resume, predict, csv, exit) ")
     
     # Perform action based on user input
     if action == "add":
@@ -71,6 +73,17 @@ while True:
         # Exit the program
         break
     
+    elif action == "csv":
+        file = ""
+        while file[-4:] != ".csv":
+            file = input("What file would you like to use? ")
+        rw = input("Would you like to read or write the CSV file? (w for write, r for read.) ")
+        if rw == "w":
+            append_write = input("True for append, False for write ")
+            csvclass.write_csv(todo.tasks, append_write)
+        elif rw == "r":
+            print(csvclass.read_csv())
+
     else:
         # Print message indicating invalid action
         print("Invalid action. Please try again.")
