@@ -23,7 +23,7 @@ Matplotlib: https://matplotlib.org/stable/tutorials/pyplot.html
 # TODO class to store tasks and perform actions on tasks
 class AIIntegratedTODO:
     def __init__(self):
-        #TODO: Read and initialize Tasks in CSV file into dictionaries.
+        # TODO: Read and initialize Tasks in CSV file into dictionaries.
         # initialize tasks and average_times as empty dictionaries
         self.tasks = []             # tasks list to store tasks
         self.task_names = []        # list to store task names

@@ -1,45 +1,10 @@
 import datetime
 import csv
-# from main import Task
-
-class Task:
-    # Task class to store information about a task
-    def __init__(self, name = None, due_date : str = None, start_time = None, end_time = None):
-        self.name = name                    # name of task
-        self.due_date = due_date            # due date of task
-        self.start_time = start_time        # start time of task
-        self.end_time = end_time            # end time of task
-    def __eq__(self, __value: object) -> bool:
-        if type(self) != type(__value):
-            return False        # where __value is not Task
-        return (self.name == __value.name and self.due_date == __value.due_date and 
-            self.start_time == __value.start_time and self.end_time == __value.end_time)
-
-    # Begin task
-    def begin(self):
-        self.start_time = datetime.datetime.now()                       # set start time to current time
-
-    def done(self):
-        self.end_time = datetime.datetime.now()                         # set end time to current time
-
-    def pause(self):
-        self.end_time = datetime.datetime.now()                         # set end time to current time
-
-    def resume(self):
-        self.start_time = datetime.datetime.now()                       # set start time to current time
-
-    def get_duration(self):
-        duration = (self.end_time - self.start_time).total_seconds()    # returns time in seconds
-        return str(datetime.timedelta(seconds=duration))                # returns time in HH:MM:SS format
-                                                                        # HH: hours, MM: minutes, SS: seconds
-
-# import statement above commented, because there is no __name__ == '__main__'
-# Temporarily, I'll just paste the Task class definition, and use that
-# Use the import statement once we have a stable file with the class Task.
+from task import Task
 
 class CSVReadWrite:
     def __init__(self, file = '/Users/harshm04/Downloads/test.csv'):
-        # file is temporary default arg that only works on Saatvik's system
+        # file is temporary default arg that only works on Harsh's system
         # Change to whatever works for you
         self.file = file
     
@@ -75,7 +40,7 @@ class CSVReadWrite:
         
         mode = 'w'                  # This mode erases contents of self.file, and starts writing
         if append:
-            mode = 'a'              # This mode appends ot end of contents of self.file (does not erase)
+            mode = 'a'              # This mode appends to end of contents of self.file (does not erase)
 
         with open(self.file, mode=mode) as file:
             # Set up writer
