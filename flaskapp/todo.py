@@ -6,6 +6,7 @@ import numpy as np
 # pip install pandas
 # import sklearn
 from task import Task
+import calendar
 
 
 """
@@ -119,6 +120,12 @@ class AIIntegratedTODO:
             avg, std = self.get_average_time(task_name)                 # get average and standard deviation
             print(f"This task is predicted to take '{str(datetime.timedelta(seconds=round(avg)))}' + or - '{str(datetime.timedelta(seconds=round(std)))}'")
 
+    def display_calendar(self, year, month):
+        # Create a text calendar
+        c = calendar.TextCalendar(calendar.SUNDAY)
+        str = c.formatmonth(year, month)
+        print(str)
+    
     def suggest_tasks(self):
         """
         The purpose of this function is to suggest tasks to the user based on their schedule 
