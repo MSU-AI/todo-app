@@ -1,5 +1,11 @@
 from todo import AIIntegratedTODO
 from csvclass import CSVReadWrite
+from supabase_py import create_client
+
+url = "https://dlkxvhzrpyvklmlonlgo.supabase.co"
+key = "key"
+
+supabase = create_client(url, key)
 
 # Create a new instance of the AIIntegratedTODO class
 todo = AIIntegratedTODO()
